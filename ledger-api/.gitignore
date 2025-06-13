@@ -122,3 +122,6 @@ temp/
 
 # Backup files
 *~
+
+# Other
+/Notes.md
