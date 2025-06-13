@@ -1,5 +1,11 @@
 # Learning Journal — Ledger System OAuth Project
 
+### Microservice
+- Handling specific business capability (managing finnancial ledger entries with secure OAuth access)
+- Encapsulates it's own logic and data storage (Postgres DB)
+- Well-defined API that exposes a clear boundary for other services to interact with
+
+
 ---
 
 ## Spring Boot
