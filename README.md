@@ -1,5 +1,6 @@
 # 💰 FinTech Ledger System  
 *A Learner's Project in Event-Driven Architecture, OAuth 2.0, and Microservices*
+- A Containerized Spring Boot Microservice for Secure, Auditable Financial Ledger Management
 
 ---
 
