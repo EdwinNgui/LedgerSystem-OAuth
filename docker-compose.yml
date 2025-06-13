@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: ledger_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ledgerdb
+      POSTGRES_USER: ledgeruser
+      POSTGRES_PASSWORD: ledgerpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  app:
+    build:
+      context: ./ledger-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ledgerdb
+      SPRING_DATASOURCE_USERNAME: ledgeruser
+      SPRING_DATASOURCE_PASSWORD: ledgerpass
+
+volumes:
+  postgres_data:
