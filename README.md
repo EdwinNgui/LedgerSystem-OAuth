@@ -1,5 +1,8 @@
 # 💰 FinTech Ledger System  
 *A Learner's Project in Event-Driven Architecture, OAuth 2.0, and Microservices*
+- A Containerized Spring Boot Microservice for Secure, Auditable Financial Ledger Management
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
@@ -12,7 +15,7 @@ This project simulates a real-world **financial transaction system** with:
 - Modular **microservices** for ledger handling, balance updates, and audit logging
 - Optional **React dashboard** for real-time visualizations
 
-> 🧠 **Note:** This is a *learner’s project*, meant to demonstrate:
+> 🧠 **Note:** This is a *learner's project*, meant to demonstrate:
 > - Backend system design
 > - Authentication flows
 > - Messaging/event systems
@@ -61,8 +64,6 @@ fintech-ledger/
 ├── frontend/ (optional) → React dashboard
 ├── docker-compose.yml → Orchestrates services
 └── README.md → This file
-
-
 
 ---
 
@@ -144,3 +145,7 @@ fintech-ledger/
 - [ ] Build a **notification service** to email on large transfers
 - [ ] Add **rate limiting** to prevent abuse
 - [ ] Store **ledger snapshots** for fast balance lookup
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

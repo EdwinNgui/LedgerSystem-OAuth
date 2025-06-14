@@ -1,9 +1,26 @@
-HELP.md
+# Build output directories
 target/
+build/
+
+# Maven Wrapper binaries
 .mvn/wrapper/maven-wrapper.jar
+
+# Prevent accidentally committing build artifacts inside source folders
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
+# Logs
+*.log
+logs/
+*.log.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
 ### STS ###
 .apt_generated
 .classpath
@@ -14,10 +31,11 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
+out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -25,9 +43,85 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+
+# Eclipse
+.metadata/
+*.tmp
+*.bak
+*.swp
+*~.nib
+.localhistory/
+
+# Environment variables and secrets
+.env
+*.env
+.env.*
+.env.local
+.env.production
+.env.development
+.env.test
+
+# Sensitive config files (add if you use these)
+application-*.yml
+application-*.properties
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Dependency directories
+node_modules/
+
+# Generated static assets (if frontend present)
+dist/
+build/
+
+# Miscellaneous
+*.iml
+*.ipr
+*.iws
+
+# Docker files (if any)
+docker-compose.override.yml
+
+# Others
+*.log.*
+*.pid
+*.seed
+*.pid.lock
+
+# Maven specific
+.mvn/
+.settings/
+dependency-reduced-pom.xml
+release.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+buildNumber.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Temporary folders
+tmp/
+temp/
+
+# Backup files
+*~
+
+# Other
+/Notes.md
