@@ -5,15 +5,28 @@ all: build run wait-for-app open-browser
 
 # Build Docker images based on docker-compose.yml
 build:
+	@if [ ! -f .env ]; then \
+		echo "Error: .env file not found. Please create it with required environment variables."; \
+		exit 1; \
+	fi
 	cd ledger-api && mvn clean package -DskipTests
+	docker compose --env-file .env build
 
 # Start containers in detached mode
 run:
-	docker compose up -d
+	@if [ ! -f .env ]; then \
+		echo "Error: .env file not found. Please create it with required environment variables."; \
+		exit 1; \
+	fi
+	docker compose --env-file .env up -d --remove-orphans
 
 # Stop containers but keep data and images
 clean:
-	docker compose down
+	@if [ ! -f .env ]; then \
+		echo "Error: .env file not found. Please create it with required environment variables."; \
+		exit 1; \
+	fi
+	docker compose --env-file .env down --remove-orphans
 	cd ledger-api && mvn clean
 
 wait-for-app:

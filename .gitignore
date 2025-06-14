@@ -3,6 +3,8 @@
 
 # Log files
 *.log
+logs/
+log/
 
 # BlueJ files
 *.ctxt
@@ -40,24 +42,48 @@ buildNumber.properties
 *.iws
 *.iml
 *.ipr
+out/
+.idea_modules/
 
 # VS Code
 .vscode/
+*.code-workspace
 
 # Spring Boot
 spring-boot-*.pid
-
-# Environment files
-.env
-*.env
 application-*.properties
 application-*.yml
 !application-example.properties
 !application-example.yml
 
+# Environment files
+.env
+.env.*
+!.env.example
+.env.local
+.env.development
+.env.test
+.env.production
+
 # Docker
 .docker/
+docker-compose.override.yml
 
 # OS specific
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Build directories
+build/
+dist/
+node_modules/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Local development
+local.properties
+local.settings.json 
