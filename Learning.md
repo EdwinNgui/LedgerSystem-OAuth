@@ -40,3 +40,22 @@
 - Platform for containerization and running applications for concistent environments
 - docker-compose.yml: Creates a PostgreSQL 15 Container exposed on port 5432 where data is on a named Docker volume
 - We can quickly setup/deploy
+
+## OAuth 2.0
+- User is the Resource Owner
+- PhotoAlbum is like the Resource Server that stores our photos
+- PrintMagic is an application Client that wants to access our Resource Server
+- OAuth2 is the authorization server that will validate the Resource Key
+
+### Workflow
+| # | From | Action | To |
+| --- | -----| ------ | ---|
+| 1 | User | Print Photos | Print Magic |
+| 2 | PrintMagic | Authorize with #clientId, #scope | OAuth2 |
+| 3 | OAuth2 | "Request Permission" Dialog | User |
+| 4 | User | Request Approved | OAuth2 |
+| 5 | OAuth2 | Permissions Granted with #authorizationCode | PrintMagic |
+| 6 | PrintMagic | Fetch access token with #authoriationCode, #clientid, #clientsecret | OAuth2 |
+| 7 | OAuth2 | Gives token | PrintMagic |
+| 8 | PrintMagic | Fetch photos | PhotoAlbum |
+| 9 | PhotoAlbum | Returns photos | PrintMagic |
