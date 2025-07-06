@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080
+          jwk-set-uri: http://localhost:8080/.well-known/jwks.json
+      authorization:
+        server:
+          client:
+            ledger-client:
+              registration:
+                client-id: ledger-client
+                client-secret: "{noop}ledger-secret"
+                client-authentication-methods:
+                  - "client_secret_basic"
+                authorization-grant-types:
+                  - "authorization_code"
+                  - "refresh_token"
+                  - "client_credentials"
+                redirect-uris:
+                  - "http://127.0.0.1:8080/login/oauth2/code/ledger-client"
+                  - "http://127.0.0.1:3000/callback"
+                  - "http://localhost:3000/callback"
+                scopes:
+                  - "openid"
+                  - "profile"
+                  - "read"
+                  - "write"
+                  - "admin"
+
+  # Disable JPA and database for now to test OAuth2
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.security.oauth2.server: DEBUG 
