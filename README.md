@@ -1,8 +1,34 @@
-# Ledger System with OAuth 2.0
+# 💰 Ledger System with OAuth 2.0
 
 A comprehensive FinTech ledger system with full OAuth 2.0 authorization server implementation.
 
-## Features
+## 🎯 Project Goals / Learning Outcomes
+
+| Goal # | Concept Learned | Feature or Task Implemented |
+|--------|-----------------|------------------------------|
+| 1️⃣ | **Authentication with OAuth 2.0** | Secure routes, token flow |
+| 2️⃣ | **JWT tokens** | Role-based access control |
+| 3️⃣ | **Double-entry bookkeeping** | Ledger API with balances |
+| 4️⃣ | **Idempotent APIs** | Prevent duplicate txns |
+| 5️⃣ | **Solace PubSub+** | Publish-subscribe messaging |
+| 6️⃣ | **Microservices** | Ledger / Balance / Audit |
+| 7️⃣ | **PostgreSQL** | ACID-compliant data storage |
+| 8️⃣ | **Docker & Compose** | Deploy full system locally |
+| 9️⃣ | **React + Tailwind** *(optional)* | Real-time UI dashboard |
+| 🔟 | **CI/CD and Logs** *(optional)* | For monitoring and health |
+
+## 🧱 Tech Stack
+
+| Layer | Tools / Tech |
+|-------|--------------|
+| **Backend API** | Spring Boot OR FastAPI / Node.js |
+| **Messaging** | Solace PubSub+ (Cloud or Docker broker) |
+| **Auth** | OAuth 2.0 + JWT (Auth0 / Keycloak / DIY) |
+| **Database** | PostgreSQL |
+| **Frontend UI** | React + TailwindCSS *(Optional)* |
+| **Infrastructure** | Docker + Docker Compose |
+
+## ✨ Features
 
 - **OAuth 2.0 Authorization Server** with JWT tokens
 - **OpenID Connect 1.0** support
@@ -115,7 +141,7 @@ curl -X GET "http://localhost:8080/api/profile" \
 - `GET /api/admin/users` - List users (requires ADMIN role)
 - `GET /api/profile` - Get user profile (requires authentication)
 
-## Documentation
+## 📚 Documentation
 
 - [OAuth 2.0 Implementation Guide](ledger-api/OAUTH2_GUIDE.md) - Comprehensive OAuth 2.0 documentation
 - [Commands Reference](Commands.md) - Quick reference for common commands
@@ -170,21 +196,9 @@ mvn clean package
 mvn test
 ```
 
-## Docker Commands
+## 🐳 Docker Commands
 
-```bash
-# Build and start all services
-make all
-
-# Build only
-make build
-
-# Start services
-make run
-
-# Stop services
-make clean
-```
+See [Commands.md](Commands.md) for all available commands.
 
 ## Troubleshooting
 
