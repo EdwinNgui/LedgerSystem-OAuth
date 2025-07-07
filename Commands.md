@@ -1,67 +1,65 @@
-## Spring Boot
+# Ledger System Commands
 
-### Spring Boot Clean Install
-mvn clean install
+## 🚀 Quick Start
 
-### Run the Spring Boot App
-cd ledger-api
-<!-- ./mvnw spring-boot:run -->
-mvn spring-boot:run
-
-Note: Visit ```http://localhost:8080/h2-console```
-HELP: sdk use java 21.0.2-tem
-
-## OAuth 2.0 Testing
-
-### Web Interface (Recommended)
 ```bash
-# Start the application
+# Start everything (recommended)
+./start-demo.sh
+
+# Or manually
 make all
-
-# Open in browser
-http://localhost:8080
 ```
 
-The web interface provides:
-- 🔐 OAuth 2.0 authentication demo
-- 👤 User information display
-- 🧪 API endpoint testing
-- 📊 Real-time authentication status
+Then open: **http://localhost:8080**
 
-### Test OAuth 2.0 Implementation
+## 🔧 Development Commands
+
+### Spring Boot
 ```bash
-# Run the test script
-./ledger-api/test-oauth2.sh
-
-# Manual testing with curl
-curl -X GET "http://localhost:8080/api/public/health"
-curl -X GET "http://localhost:8080/.well-known/openid_configuration"
+cd ledger-api
+mvn clean install
+mvn spring-boot:run
 ```
 
-### OAuth 2.0 Endpoints
-- Authorization: `GET /oauth2/authorize`
-- Token: `POST /oauth2/token`
-- User Info: `GET /api/profile`
-- JWK Set: `GET /.well-known/jwks.json`
-- OpenID Config: `GET /.well-known/openid_configuration`
+### Docker
+```bash
+make all          # Build and start
+make build        # Build only
+make run          # Start services
+make clean        # Stop and remove
+```
 
-### Pre-configured Users
-- Username: `user`, Password: `password`, Roles: USER
-- Username: `admin`, Password: `admin`, Roles: USER, ADMIN
+## 🧪 Testing
 
-### Pre-configured Clients
-- Client ID: `ledger-client`, Secret: `ledger-secret`
-- Client ID: `postman-client`, Secret: `postman-secret`
+### Web Interface
+- Open **http://localhost:8080** in your browser
+- Test OAuth flows and API endpoints
 
-## Docker
-- Start Docker daemon: sudo systemctl start docker
-- Start Docker service: sudo systemctl enable docker
-- Check Docker service status: sudo systemctl status docker
-- Check Docker working on system (without sudo): docker run hello-world
-- Run Docker container on exposed port: docker run -p 8080:8080 --network="host" ledger-api
+### Command Line
+```bash
+./ledger-api/test-oauth2.sh
+curl -X GET "http://localhost:8080/api/public/health"
+```
 
-## Makefile (streamlining docker)
-- Start Containers: Make up
-- Stop and remove containers: Make down
-- Rebuild images: Make build
-- `make all` = `make build` + `make up` = `docker-compose build` + `docker-compose up -d`
+## 👥 Demo Accounts
+
+| Username | Password | Role |
+|----------|----------|------|
+| `user`   | `password` | USER |
+| `admin`  | `admin`     | USER, ADMIN |
+
+## 🔐 OAuth Clients
+
+| Client ID | Secret | Use |
+|-----------|--------|-----|
+| `ledger-client` | `ledger-secret` | Web App |
+| `postman-client` | `postman-secret` | API Testing |
+
+## 📍 Key Endpoints
+
+- **Demo Page**: `http://localhost:8080`
+- **Health Check**: `GET /api/public/health`
+- **OAuth Auth**: `GET /oauth2/authorize`
+- **OAuth Token**: `POST /oauth2/token`
+- **User Profile**: `GET /api/profile`
+- **JWK Set**: `GET /.well-known/jwks.json`
