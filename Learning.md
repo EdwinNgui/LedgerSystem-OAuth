@@ -28,6 +28,19 @@
 - Encapsulates it's own logic and data storage (Postgres DB)
 - Well-defined API that exposes a clear boundary for other services to interact with
 
+### Authentication Implementation
+- LedgerApiApplication.java (main application class): Entry point for Spring Boot app
+- config/
+- - OAuth2AuthorizationServerConfig.java: Sets up endpoints, logins
+- - ClientRegistrationConfig.java: Registers client (client ID, allowed redirect URIs)
+- controller/
+- - LedgerController.java: Defines API endpoints in ledger system (e.g. /api/public/health) or ones for specific roles
+- - WebController.java: Serves main web page
+- - CustomErrorController.java: Handles errors with error page
+- model/ => Maps database tables to Java objects
+- repository/ => Defines interface for database access
+
+
 ---
 
 # Technologies
